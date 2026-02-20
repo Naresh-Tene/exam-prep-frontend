@@ -1,0 +1,231 @@
+/* Auth layout: full height, two columns (desktop) */
+.auth-page {
+  height: 100vh;
+  display: flex;
+  background: #f5f5f5;
+  overflow: hidden; /* prevent page scrolling on auth screens */
+}
+
+.auth-container {
+  display: flex;
+  width: 100%;
+  max-width: 1120px; /* closer to screenshot proportions */
+  margin: 0 auto;
+  height: 100vh;
+}
+
+/* Left column: illustration (desktop only) */
+.auth-illustration {
+  display: none;
+  width: 50%;
+  background: #fff;
+  border-right: 1px solid #e5e5e5;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  box-sizing: border-box;
+}
+
+.auth-illustration img {
+  width: min(560px, 92%);
+  height: auto;
+  max-width: 100%;
+  max-height: 76vh; /* keep illustration from forcing scroll */
+  object-fit: contain;
+}
+
+/* Right column: form */
+.auth-form-column {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.auth-form-inner {
+  width: 100%;
+  max-width: 420px; /* match screenshot card sizing */
+}
+
+/* Branding */
+.auth-branding {
+  margin-bottom: 20px;
+}
+
+.auth-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #111;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Form card */
+.auth-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  padding: 30px;
+  margin-top: 20px;
+}
+
+.auth-form .auth-field {
+  margin-bottom: 18px;
+}
+
+.auth-form .auth-field:last-of-type {
+  margin-bottom: 20px;
+}
+
+.auth-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.auth-form input {
+  width: 100%;
+  height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.auth-form input::placeholder {
+  color: #999;
+}
+
+/* Error message */
+.auth-error {
+  font-size: 13px;
+  color: #c00;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Forgot password link */
+.auth-forgot {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.auth-forgot:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+/* Submit button */
+.auth-submit {
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: 6px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.auth-submit:hover:not(:disabled) {
+  background: #000;
+}
+
+.auth-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Footer link (Register / Login) - keep above footer so it's clickable */
+.auth-footer-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-footer-link a {
+  color: #1a1a1a;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.auth-footer-link a:hover {
+  text-decoration: underline;
+}
+
+/* Page footer - not positioned over content so Register/Login link is clickable */
+.auth-page-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+
+.auth-footer-sep {
+  display: inline-block;
+  margin: 0 10px;
+  color: #cfcfcf;
+}
+
+.auth-footer-linkout {
+  color: #111;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.25);
+}
+
+.auth-footer-linkout:hover {
+  border-bottom-color: rgba(17, 17, 17, 0.6);
+}
+
+.auth-form-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-bottom: 60px; /* space so footer never overlaps links */
+}
+
+/* Desktop: two columns */
+@media (min-width: 900px) {
+  .auth-illustration {
+    display: flex;
+  }
+
+  .auth-form-column {
+    width: 50%;
+  }
+}
