@@ -5,7 +5,7 @@ import AuthIllustration from "../components/AuthIllustration";
 import "../styles/Auth.css";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");   // still called email in UI
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -17,8 +17,9 @@ function Login() {
     setLoading(true);
 
     try {
+      // 🔥 FIX: send username instead of email
       const { data } = await API.post("/auth/login", {
-        email,
+        username: email,
         password,
       });
 
@@ -42,7 +43,9 @@ function Login() {
           <div className="auth-form-inner">
             <div className="auth-branding">
               <h1 className="auth-title">Exam Prep</h1>
-              <p className="auth-subtitle">Welcome back. Please sign in to continue.</p>
+              <p className="auth-subtitle">
+                Welcome back. Please sign in to continue.
+              </p>
             </div>
 
             <div className="auth-card">
@@ -73,14 +76,26 @@ function Login() {
                     disabled={loading}
                     autoComplete="current-password"
                   />
-                  <a href="#" className="auth-forgot" onClick={(e) => e.preventDefault()}>
+                  <a
+                    href="#"
+                    className="auth-forgot"
+                    onClick={(e) => e.preventDefault()}
+                  >
                     Forgot password?
                   </a>
                 </div>
 
-                {error && <p className="auth-error" role="alert">{error}</p>}
+                {error && (
+                  <p className="auth-error" role="alert">
+                    {error}
+                  </p>
+                )}
 
-                <button type="submit" className="auth-submit" disabled={loading}>
+                <button
+                  type="submit"
+                  className="auth-submit"
+                  disabled={loading}
+                >
                   {loading ? "Logging in…" : "Login"}
                 </button>
               </form>
